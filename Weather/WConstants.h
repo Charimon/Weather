@@ -7,6 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+//DISTANCE
+//-------------------------
+#define LOCATION_DISTANCE (1609.34f*5.f)
+
 //RESTKIT STUFF
 //-------------------------
 //world weather online
@@ -48,3 +52,48 @@ if(c.firstItem == what) [from removeConstraint:c];\
 #define REMOVE_CONST(what)\
 REMOVE_CONST_FROM(what, what.superview)
 
+
+//enums
+//-------------------------
+typedef NS_ENUM(NSInteger, WWeatherType) {
+    WWeatherTypeUndefined,
+    WWeatherTypeSunny,
+    
+    WWeatherTypeCloudy,
+    WWeatherTypePartiallyCloudy,
+    WWeatherTypeLightlyCloudy,
+    WWeatherTypeMostlyCloudy,
+    WWeatherTypeOvercast,
+    
+    WWeatherTypeFog,
+    
+    WWeatherTypeScatteredRain,
+    WWeatherTypeRain,
+    WWeatherTypeLightRain,
+    WWeatherTypeModerateRain,
+    WWeatherTypeHeavyRain,
+    
+    WWeatherTypeScatteredSnow,
+    WWeatherTypeSnow,
+    WWeatherTypeLightSnow,
+    WWeatherTypeModerateSnow,
+    WWeatherTypeHeavySnow,
+    
+    WWeatherTypeScatteredSleet,
+    WWeatherTypeSleet,
+    WWeatherTypeLightSleet,
+    WWeatherTypeModerateSleet,
+    WWeatherTypeHeavySleet,
+    
+    WWeatherTypeScatteredThunder,
+    WWeatherTypeThunder,
+    WWeatherTypeLightThunder,
+    WWeatherTypeModerateThunder,
+    WWeatherTypeHeavyThunder,
+    
+    WWeatherTypeScatteredHail,
+    WWeatherTypeHail,
+    WWeatherTypeLightHail,
+    WWeatherTypeModerateHail,
+    WWeatherTypeHeavyHail,
+};

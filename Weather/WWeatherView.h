@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WConstants.h"
 
 @interface WWeatherView : UIView
 -(void) setLocation:(NSString *) location;
+-(void) setWeatherType:(WWeatherType) type;
 @end

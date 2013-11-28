@@ -42,10 +42,12 @@
 }
 
 -(void) setWeatherGroup:(WWeatherGroup *)weatherGroup {
+    _weatherGroup = weatherGroup;
     WWeather *weather = [weatherGroup.fiveDays objectAtIndex:0];
     [self.highTemperature setTemperature:weather.maxTemperature];
     [self.lowTemperature setTemperature:weather.minTemperature];
     [self.weatherView setLocation:weatherGroup.placemark.locality];
+    [self.weatherView setWeatherType:[weather weatherType]];
 }
 
 - (id)initWithFrame:(CGRect)frame

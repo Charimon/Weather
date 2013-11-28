@@ -7,6 +7,7 @@
 //
 
 #import "WLocationManager.h"
+#import "WConstants.h"
 
 @interface WLocationManager()
 @property (nonatomic, retain) CLLocationManager *locationManger;
@@ -35,7 +36,7 @@
     [self.delegate locationUpdate:locations];
     if(locations.count > 0) {
         CLLocation * currentLocation = [locations objectAtIndex:0];
-        if( (!self.currentLocation && currentLocation) || (currentLocation && [self.currentLocation distanceFromLocation:currentLocation] > 4.f) ) {
+        if( (!self.currentLocation && currentLocation) || (currentLocation && [self.currentLocation distanceFromLocation:currentLocation] > LOCATION_DISTANCE) ) {
             self.currentLocation = currentLocation;
             if([self.delegate respondsToSelector:@selector(locationChanged:)]) [self.delegate locationChanged:self.currentLocation];
         }

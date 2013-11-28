@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "WWeatherGroup.h"
 
-@interface W5DayBreakdown : UIView
+@interface W5DayBreakdown : UIView <UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) WWeatherGroup *weatherGroup;
 @end

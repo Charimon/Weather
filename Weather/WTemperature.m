@@ -56,7 +56,7 @@
 
 -(void) setTemperature: (NSNumber *) temperature {
     self.tempLabel.text = temperature.description;
-    self.scaleLabel.text = @"°C";
+    if(self.tempLabel.text.length > 0) self.scaleLabel.text = @"°C";
 }
 
 @end

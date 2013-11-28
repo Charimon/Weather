@@ -19,7 +19,6 @@
 		33309D8B183FB71A00886BB1 /* WWeatherView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33309D8A183FB71A00886BB1 /* WWeatherView.m */; };
 		33309D8E183FBC1D00886BB1 /* WCurrentDayWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = 33309D8D183FBC1D00886BB1 /* WCurrentDayWeather.m */; };
 		33309D91183FBF2700886BB1 /* W5DayBreakdown.m in Sources */ = {isa = PBXBuildFile; fileRef = 33309D90183FBF2700886BB1 /* W5DayBreakdown.m */; };
-		333DEC17183F44BE007A95E1 /* League_Gothic-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 333DEC16183F446C007A95E1 /* League_Gothic-webfont.ttf */; };
 		333DEC1A183F46B4007A95E1 /* WClock.m in Sources */ = {isa = PBXBuildFile; fileRef = 333DEC19183F46B4007A95E1 /* WClock.m */; };
 		333DEC1D183F53AE007A95E1 /* WRestkitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 333DEC1C183F53AE007A95E1 /* WRestkitManager.m */; };
 		33560DA81840E1AF00E00EEF /* WLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 33560DA71840E1AF00E00EEF /* WLocationManager.m */; };
@@ -27,6 +26,7 @@
 		33560DAE1840EAF700E00EEF /* WWeatherParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 33560DAD1840EAF700E00EEF /* WWeatherParameters.m */; };
 		33560DB11841896E00E00EEF /* WWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = 33560DB01841896E00E00EEF /* WWeather.m */; };
 		33560DB41841899700E00EEF /* WWeatherGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 33560DB31841899700E00EEF /* WWeatherGroup.m */; };
+		339C4DE918478B0200F60E34 /* WTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 339C4DE818478B0200F60E34 /* WTableViewCell.m */; };
 		33ED79DA183EE84000FEC350 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33ED79D9183EE84000FEC350 /* Foundation.framework */; };
 		33ED79DC183EE84000FEC350 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33ED79DB183EE84000FEC350 /* CoreGraphics.framework */; };
 		33ED79DE183EE84000FEC350 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33ED79DD183EE84000FEC350 /* UIKit.framework */; };
@@ -76,7 +76,6 @@
 		33309D8F183FBF2700886BB1 /* W5DayBreakdown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = W5DayBreakdown.h; sourceTree = "<group>"; };
 		33309D90183FBF2700886BB1 /* W5DayBreakdown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = W5DayBreakdown.m; sourceTree = "<group>"; };
 		333DEC13183F3F43007A95E1 /* WTimeDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WTimeDelegate.h; sourceTree = "<group>"; };
-		333DEC16183F446C007A95E1 /* League_Gothic-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "League_Gothic-webfont.ttf"; sourceTree = "<group>"; };
 		333DEC18183F46B4007A95E1 /* WClock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WClock.h; sourceTree = "<group>"; };
 		333DEC19183F46B4007A95E1 /* WClock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WClock.m; sourceTree = "<group>"; };
 		333DEC1B183F53AE007A95E1 /* WRestkitManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WRestkitManager.h; sourceTree = "<group>"; };
@@ -91,6 +90,8 @@
 		33560DB01841896E00E00EEF /* WWeather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWeather.m; sourceTree = "<group>"; };
 		33560DB21841899700E00EEF /* WWeatherGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWeatherGroup.h; sourceTree = "<group>"; };
 		33560DB31841899700E00EEF /* WWeatherGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWeatherGroup.m; sourceTree = "<group>"; };
+		339C4DE718478B0200F60E34 /* WTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTableViewCell.h; sourceTree = "<group>"; };
+		339C4DE818478B0200F60E34 /* WTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTableViewCell.m; sourceTree = "<group>"; };
 		33ED79D6183EE84000FEC350 /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33ED79D9183EE84000FEC350 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		33ED79DB183EE84000FEC350 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -168,7 +169,6 @@
 		333DEC15183F445E007A95E1 /* fonts */ = {
 			isa = PBXGroup;
 			children = (
-				333DEC16183F446C007A95E1 /* League_Gothic-webfont.ttf */,
 			);
 			name = fonts;
 			sourceTree = "<group>";
@@ -219,8 +219,8 @@
 		33ED79DF183EE84000FEC350 /* Weather */ = {
 			isa = PBXGroup;
 			children = (
-				333DEC1E183F638B007A95E1 /* restkit */,
 				33ED7A10183F098000FEC350 /* WConstants.h */,
+				333DEC1E183F638B007A95E1 /* restkit */,
 				333DEC15183F445E007A95E1 /* fonts */,
 				333DEC14183F4458007A95E1 /* assets */,
 				33ED7A19183F1A1100FEC350 /* delegates */,
@@ -299,6 +299,8 @@
 				33309D8D183FBC1D00886BB1 /* WCurrentDayWeather.m */,
 				33309D8F183FBF2700886BB1 /* W5DayBreakdown.h */,
 				33309D90183FBF2700886BB1 /* W5DayBreakdown.m */,
+				339C4DE718478B0200F60E34 /* WTableViewCell.h */,
+				339C4DE818478B0200F60E34 /* WTableViewCell.m */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -395,7 +397,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				333DEC17183F44BE007A95E1 /* League_Gothic-webfont.ttf in Resources */,
 				33309D82183FAEF800886BB1 /* sunny.png in Resources */,
 				33309D81183FAEF800886BB1 /* partially_cloudy@2x.png in Resources */,
 				33309D7E183FAEF800886BB1 /* cloudy.png in Resources */,
@@ -501,6 +502,7 @@
 				33560DA81840E1AF00E00EEF /* WLocationManager.m in Sources */,
 				33309D91183FBF2700886BB1 /* W5DayBreakdown.m in Sources */,
 				33ED7A22183F1B9B00FEC350 /* WCardViewController.m in Sources */,
+				339C4DE918478B0200F60E34 /* WTableViewCell.m in Sources */,
 				33309D8B183FB71A00886BB1 /* WWeatherView.m in Sources */,
 				333DEC1A183F46B4007A95E1 /* WClock.m in Sources */,
 				33309D88183FB22700886BB1 /* WTemperature.m in Sources */,

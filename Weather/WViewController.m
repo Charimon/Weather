@@ -13,6 +13,7 @@
 #import "WRestkitManager.h"
 #import "WWeatherGroup.h"
 #import "WLoader.h"
+#import <TouchIndicatorView.h>
 
 @interface WViewController ()
 @property (strong, nonatomic) WStatusBar *statusBar;
@@ -53,6 +54,10 @@
     self.locationManger.delegate = self;
 }
 
+- (void) viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self.locationManger stopUpdatingLocation];
+}
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.locationManger startUpdatingLocation];
@@ -69,19 +74,28 @@
     ACP(self.view, self.cardViewController.view, NSLayoutAttributeLeading, NSLayoutRelationEqual, self.view, NSLayoutAttributeLeading, 1.f, 0.f, UILayoutPriorityRequired);
     ACP(self.view, self.cardViewController.view, NSLayoutAttributeTrailing, NSLayoutRelationEqual, self.view, NSLayoutAttributeTrailing, 1.f, 0.f, UILayoutPriorityRequired);
     ACP(self.view, self.cardViewController.view, NSLayoutAttributeBottom, NSLayoutRelationEqual, self.view, NSLayoutAttributeBottom, 1.f, 0.f, UILayoutPriorityRequired);
+    
+//    TouchIndicatorView* touch = [[TouchIndicatorView alloc] initWithSize:CGSizeMake(30.f,30.f) action:TouchActionTypeDragNorth];
+//    touch.translatesAutoresizingMaskIntoConstraints = NO;
+//    [self.view addSubview:touch];
+//    ACP(self.view, touch, NSLayoutAttributeCenterX, NSLayoutRelationEqual, self.view, NSLayoutAttributeCenterX, .5f, 0.f, UILayoutPriorityRequired);
+//    ACP(self.view, touch, NSLayoutAttributeCenterY, NSLayoutRelationEqual, self.view, NSLayoutAttributeCenterY, 1.f, 0.f, UILayoutPriorityRequired);
+//    ACP(self.view, touch, NSLayoutAttributeWidth, NSLayoutRelationEqual, nil, NSLayoutAttributeNotAnAttribute, 0.f, 30.f, UILayoutPriorityRequired);
+//    ACP(self.view, touch, NSLayoutAttributeHeight, NSLayoutRelationEqual, nil, NSLayoutAttributeNotAnAttribute, 0.f, 30.f, UILayoutPriorityRequired);
+//    [touch startAnimation];
 }
 
--(void) viewDidAppear:(BOOL)animated {}
+- (void) viewDidAppear:(BOOL)animated {}
 - (void)didReceiveMemoryWarning{ [super didReceiveMemoryWarning];}
 
--(UIStatusBarStyle)preferredStatusBarStyle{ return UIStatusBarStyleLightContent; }
+- (UIStatusBarStyle)preferredStatusBarStyle{ return UIStatusBarStyleLightContent; }
 
 #pragma mark - WLocationManagerDelgate
 - (void)locationUpdate:(NSArray *)locations {}
 - (void)locationError:(NSError *)error {
     //TODO: remove current weather icon
 }
--(void) locationChanged:(CLLocation *)location {
+- (void) locationChanged:(CLLocation *)location {
     [WLoader getWeatherAtLocation:location WithCompletion:^(WWeatherGroup *weatherGroup) {
         self.cardViewController.weatherGroup = weatherGroup;
     } failure:^(NSError *error) {}];
@@ -89,5 +103,23 @@
 - (void)pausedLocationUpdates {}
 - (void)resumedLocationUpdates {}
 #pragma mark - end WLocationManagerDelgate
+
+
+static NSDictionary *bigWeatherImage = nil;
++(NSDictionary*) bigWeatherImage
+{
+    if(bigWeatherImage) return bigWeatherImage;
+    
+    static dispatch_once_t oncePredicate;
+    dispatch_once(&oncePredicate, ^{
+        bigWeatherImage = [NSDictionary dictionaryWithObjectsAndKeys:
+                    [NSNumber numberWithInt:WWeatherTypeUndefined],@"395",
+                    [NSNumber numberWithInt:WWeatherTypeUndefined],@"392",
+                    nil];
+    });
+    
+    return bigWeatherImage;
+}
+
 
 @end

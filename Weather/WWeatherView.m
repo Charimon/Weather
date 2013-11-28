@@ -7,7 +7,6 @@
 //
 
 #import "WWeatherView.h"
-#import "WConstants.h"
 
 @interface WWeatherView()
 @property (strong, nonatomic) UIImageView *icon;
@@ -51,30 +50,35 @@
 }
 
 -(void) setLocation:(NSString *) location { self.locationLabel.text = location; }
+-(void) setWeatherType:(WWeatherType) type {
+    switch(type) {
+        case WWeatherTypeSunny: self.icon.image = [UIImage imageNamed:@"sunny"];self.weatherLabel.text = @"Sunny";break;
+        case WWeatherTypePartiallyCloudy: self.icon.image = [UIImage imageNamed:@"partially_cloudy"];self.weatherLabel.text = @"Partially Cloudy";break;
+        case WWeatherTypeThunder: self.icon.image = [UIImage imageNamed:@"thunder"];self.weatherLabel.text = @"Thundery";break;
+        default: break;
+    }
+}
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         [self addSubview:self.icon];
-        [self addSubview:self.locationLabel];
+        [self addSubview:
+         self.locationLabel];
         [self addSubview:self.weatherLabel];
         
         ACP(self, self.icon, NSLayoutAttributeLeading, NSLayoutRelationEqual, self, NSLayoutAttributeLeading, 1.f, 0.f, UILayoutPriorityRequired);
         ACP(self, self.icon, NSLayoutAttributeTrailing, NSLayoutRelationEqual, self, NSLayoutAttributeTrailing, 1.f, 0.f, UILayoutPriorityRequired);
+        ACP(self, self.icon, NSLayoutAttributeCenterY, NSLayoutRelationEqual, self, NSLayoutAttributeCenterY, 1.f, 0.f, UILayoutPriorityRequired);
         
         ACP(self, self.weatherLabel, NSLayoutAttributeLeading, NSLayoutRelationEqual, self, NSLayoutAttributeLeading, 1.f, 0.f, UILayoutPriorityRequired);
         ACP(self, self.weatherLabel, NSLayoutAttributeTrailing, NSLayoutRelationEqual, self, NSLayoutAttributeTrailing, 1.f, 0.f, UILayoutPriorityRequired);
-        ACP(self, self.weatherLabel, NSLayoutAttributeBottom, NSLayoutRelationEqual, self.icon, NSLayoutAttributeTop, 1.f, -10.f, UILayoutPriorityRequired);
-        ACP(self, self.weatherLabel, NSLayoutAttributeTop, NSLayoutRelationEqual, self, NSLayoutAttributeTop, 1.f, 0.f, UILayoutPriorityRequired);
+        ACP(self, self.weatherLabel, NSLayoutAttributeBottom, NSLayoutRelationEqual, self.icon, NSLayoutAttributeTop, 1.f, -4.f, UILayoutPriorityRequired);
         
         ACP(self, self.locationLabel, NSLayoutAttributeLeading, NSLayoutRelationEqual, self, NSLayoutAttributeLeading, 1.f, 0.f, UILayoutPriorityRequired);
         ACP(self, self.locationLabel, NSLayoutAttributeTrailing, NSLayoutRelationEqual, self, NSLayoutAttributeTrailing, 1.f, 0.f, UILayoutPriorityRequired);
-        ACP(self, self.locationLabel, NSLayoutAttributeTop, NSLayoutRelationEqual, self.icon, NSLayoutAttributeBottom, 1.f, 10.f, UILayoutPriorityRequired);
-        ACP(self, self.locationLabel, NSLayoutAttributeBottom, NSLayoutRelationEqual, self, NSLayoutAttributeBottom, 1.f, 0.f, UILayoutPriorityRequired);
-        
-        self.icon.image = [UIImage imageNamed:@"sunny"];
-        self.weatherLabel.text = @"Sunny";
+        ACP(self, self.locationLabel, NSLayoutAttributeTop, NSLayoutRelationEqual, self.icon, NSLayoutAttributeBottom, 1.f, 0.f, UILayoutPriorityRequired);
     }
     return self;
 }

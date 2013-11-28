@@ -37,8 +37,8 @@
 }
 
 -(void) setWeatherGroup:(WWeatherGroup *)weatherGroup {
-    self.weatherController.weatherGroup = weatherGroup;
     _weatherGroup = weatherGroup;
+    self.weatherController.weatherGroup = weatherGroup;
 }
 
 

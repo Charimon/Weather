@@ -12,6 +12,7 @@
 #import "W5DayBreakdown.h"
 
 @interface WWeatherViewController ()
+@property (nonatomic) BOOL fiveDayWeatherOpened;
 @property (strong, nonatomic) WCurrentDayWeather* currentDayWeather;
 @property (strong, nonatomic) W5DayBreakdown* fiveDayBreakdown;
 @property (nonatomic, strong) UIPanGestureRecognizer* gestureRecognizer;
@@ -27,12 +28,14 @@
 -(void) setupCurrentDayWeather {
     self.currentDayWeather = [[WCurrentDayWeather alloc] initWithFrame:CGRectZero];
     [self.view addSubview:self.currentDayWeather];
+    self.currentDayWeather.weatherGroup = self.weatherGroup;
     self.currentDayWeather.translatesAutoresizingMaskIntoConstraints = NO;
 }
 
 -(void) setupFiveDayBreakdown {
     self.fiveDayBreakdown = [[W5DayBreakdown alloc] initWithFrame:CGRectZero];
     [self.view addSubview:self.fiveDayBreakdown];
+    self.fiveDayBreakdown.weatherGroup = self.weatherGroup;
     self.fiveDayBreakdown.translatesAutoresizingMaskIntoConstraints = NO;
 }
 
@@ -53,12 +56,11 @@
         }
     } else if(recognizer.state == UIGestureRecognizerStateChanged){
         CGPoint translation = [recognizer translationInView:recognizer.view];
-        NSLog(@"%f", translation.y);
-        if(translation.y > 0) return;
         
         for(NSLayoutConstraint *constraint in self.view.constraints) {
             if(constraint.firstItem == self.currentDayWeather && constraint.firstAttribute == NSLayoutAttributeTop) {
-                constraint.constant = translation.y;
+                if(self.fiveDayWeatherOpened) constraint.constant = translation.y - self.view.frame.size.height;
+                else constraint.constant = translation.y;
             }
         }
         [self.view layoutIfNeeded];
@@ -80,13 +82,14 @@
             distance = ABS(height - translation.y);
             animationConversion = (distance/height);
             transition = UIViewAnimationOptionTransitionNone | UIViewAnimationOptionCurveEaseInOut;
+            translation.y = 0;
         } else {
             distance = ABS(translation.y);
             animationConversion = (distance/height);
             transition = UIViewAnimationOptionTransitionNone | UIViewAnimationOptionCurveEaseInOut;
             translation.y = 0;
         }
-        if(distance/ABS(velocity.x) < animationConversion) animationConversion = distance/ABS(velocity.y);
+        if(distance/ABS(velocity.y) < animationConversion) animationConversion = distance/ABS(velocity.y);
         
         for(NSLayoutConstraint *constraint in self.view.constraints) {
             if(constraint.firstItem == self.currentDayWeather && constraint.firstAttribute == NSLayoutAttributeTop) {
@@ -100,7 +103,8 @@
                          animations:^{
                              [self.view layoutIfNeeded];
                          } completion:^(BOOL finished){
-                             
+                             if(translation.y == -height) self.fiveDayWeatherOpened = YES;
+                             else self.fiveDayWeatherOpened = NO;
                          }];
     }
 }

@@ -85,7 +85,7 @@
         ACP(self, self.periodLabel, NSLayoutAttributeCenterX, NSLayoutRelationEqual, self.timeLabel, NSLayoutAttributeCenterX, 1.f, 0.f, UILayoutPriorityRequired);
 
         [self nextMinute];
-        [NSTimer scheduledTimerWithTimeInterval: 1 target: self selector: @selector(nextMinute) userInfo: nil repeats: NO];
+        [NSTimer scheduledTimerWithTimeInterval: 1 target: self selector: @selector(nextMinute) userInfo: nil repeats: YES];
 
     }
     return self;
