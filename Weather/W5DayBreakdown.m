@@ -32,6 +32,7 @@
     [_fiveDaysView registerClass:[WTableViewCell class] forCellReuseIdentifier:@"CELL"];
     _fiveDaysView.delegate = self;
     _fiveDaysView.dataSource = self;
+    _fiveDaysView.scrollEnabled = NO;
     _fiveDaysView.separatorInset = UIEdgeInsetsZero;
     _fiveDaysView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _fiveDaysView.translatesAutoresizingMaskIntoConstraints = NO;
